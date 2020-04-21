@@ -1,0 +1,17 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<SearchInput /> should render and match snapshot  1`] = `
+<div
+  class="SearchInput__Wrapper-sc-1ot3cvd-0 Tcmdk"
+>
+  <input
+    placeholder="search something"
+    type="search"
+  />
+  <button
+    type="button"
+  >
+    Search
+  </button>
+</div>
+`;
