@@ -13,6 +13,7 @@ import { Switch, Route } from 'react-router-dom';
 import { hot } from 'react-hot-loader/root';
 import HomePage from 'containers/HomePage/Loadable';
 import NotFoundPage from 'containers/NotFoundPage/Loadable';
+import OMDBPage from 'containers/OMDBPage';
 
 import GlobalStyle from '../../global-styles';
 
@@ -21,6 +22,7 @@ function App() {
     <div>
       <Switch>
         <Route exact path="/" component={HomePage} />
+        <Route path="/movies" component={OMDBPage} />
         <Route component={NotFoundPage} />
       </Switch>
       <GlobalStyle />

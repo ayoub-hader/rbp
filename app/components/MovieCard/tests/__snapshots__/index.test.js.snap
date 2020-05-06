@@ -1,0 +1,30 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<MovieCard /> should render and match the snapshot 1`] = `
+<div
+  class="MovieCardWrapper-nltufh-0 fbJMhn"
+>
+  <div
+    class="poster"
+  >
+    <img
+      alt="no poster available"
+      src="img/url.jpg"
+    />
+  </div>
+  <div
+    class="details"
+  >
+    <span
+      class="title"
+    >
+      Mind Hunters
+    </span>
+    <span
+      class="year"
+    >
+      201x
+    </span>
+  </div>
+</div>
+`;

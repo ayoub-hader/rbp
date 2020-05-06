@@ -1,0 +1,24 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<OMDBPage /> should render and match snapshot without movies 1`] = `
+<div
+  class="OMDBPage__Wrapper-m81c9p-0 HgoYX"
+>
+  <div
+    class="SearchInput__Wrapper-sc-1ot3cvd-0 Tcmdk"
+  >
+    <input
+      placeholder="search movies by title"
+      type="search"
+    />
+    <button
+      type="button"
+    >
+      Search
+    </button>
+  </div>
+  <div
+    class="movies"
+  />
+</div>
+`;
