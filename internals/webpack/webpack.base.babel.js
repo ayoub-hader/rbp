@@ -111,7 +111,7 @@ module.exports = options => ({
     // drop any unreachable code.
     new webpack.EnvironmentPlugin({
       NODE_ENV: 'development',
-      REACT_OMDB_API_KEY: '3a12a3f0',
+      REACT_OMDB_API_KEY: '6a681461',
     }),
   ]),
   resolve: {

@@ -16,12 +16,23 @@ const Wrapper = styled.div`
 export default function SearchInput({ placeholder, handleSearch }) {
   const searchRef = useRef();
   const handleClick = () => handleSearch(searchRef.current.value);
+  const handleKeyPress = event => {
+    if (event.key === 'Enter') {
+      handleSearch(searchRef.current.value);
+    }
+  };
   return (
     <Wrapper>
-      <input ref={searchRef} type="search" placeholder={placeholder} />
+      <input
+        ref={searchRef}
+        type="search"
+        placeholder={placeholder}
+        onKeyPress={handleKeyPress}
+      />
       <button type="button" onClick={handleClick}>
         Search
       </button>
+      <p>tester font</p>
     </Wrapper>
   );
 }

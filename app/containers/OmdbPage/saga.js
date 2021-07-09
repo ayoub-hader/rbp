@@ -9,7 +9,7 @@ export function* loadMovies({ search }) {
   const url = `http://omdbapi.com/?s=${search}&apikey=${apiKey}`;
   try {
     const data = yield call(request, url);
-    yield put(moviesLoaded(data.search));
+    yield put(moviesLoaded(data.Search));
   } catch (error) {
     yield put(moviesLoadingError(error));
   }

@@ -4,7 +4,7 @@
  *
  */
 
-import React from 'react';
+import React, { useState } from 'react';
 // import PropTypes from 'prop-types';
 import { useSelector, useDispatch } from 'react-redux';
 import { createStructuredSelector } from 'reselect';
@@ -16,6 +16,14 @@ import saga from './saga';
 import SearchInput from '../../components/SearchInput';
 import MovieCard from '../../components/MovieCard';
 import { loadMovies } from './actions';
+import CredentialsField from '../../components/CredentialsField';
+import IconUser from './iconSvg/close@2x.png';
+import FormButton, {
+  ButtonSecondary,
+  InvertedButton,
+} from '../../components/FormButton';
+import FormInput from '../../components/FormInput';
+import BlockMenu from '../BlockMenu';
 
 const stateSelector = createStructuredSelector({
   movies: makeSelectMovies,
@@ -33,6 +41,8 @@ function OmdbPage() {
 
   /* eslint-disable no-unused-vars */
   const { omdbPage, movies } = useSelector(stateSelector);
+  const [value, setValue] = useState('');
+  const [valueInput, setValueInput] = useState('');
   const dispatch = useDispatch();
   /* eslint-enable no-unused-vars */
   const handleSearch = search => dispatch(loadMovies(search));
@@ -54,6 +64,29 @@ function OmdbPage() {
             />
           ))}
       </div>
+      <CredentialsField
+        placeholder="tester"
+        iconField={IconUser}
+        value={value}
+        onChange={event => {
+          setValue(event.target.value);
+        }}
+      />
+      <FormButton>Test1</FormButton>
+      <InvertedButton>Inversé</InvertedButton>
+      <ButtonSecondary>
+        <img src={IconUser} alt="" />
+        ButtonSecondary
+      </ButtonSecondary>
+      <FormInput
+        label="tester01"
+        value={valueInput}
+        onChange={event => {
+          setValueInput(event.target.value);
+        }}
+        placeholder="tester01"
+      />
+      <BlockMenu />
     </Wrapper>
   );
 }
