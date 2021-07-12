@@ -1,11 +1,7 @@
 {
-  "name": "react-boilerplate",
-  "version": "4.0.0",
-  "description": "A highly scalable, offline-first foundation with the best DX and a focus on performance and best practices",
-  "repository": {
-    "type": "git",
-    "url": "git://github.com/react-boilerplate/react-boilerplate.git"
-  },
+  "name": "react-starter",
+  "version": "0.0.1",
+  "description": "A react starter based on react-boilerplate",
   "engines": {
     "npm": ">=5",
     "node": ">=8.15.1"
