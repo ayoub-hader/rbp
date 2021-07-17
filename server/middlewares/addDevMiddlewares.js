@@ -22,9 +22,9 @@ module.exports = function addDevMiddlewares(app, webpackConfig) {
 
   // Since webpackDevMiddleware uses memory-fs internally to store build
   // artifacts, we use it instead
-  const readFile = require('fs').promises;
+  const fs = require('fs').promises;
   app.get('*', (req, res) => {
-    readFile(path.join(compiler.outputPath, 'index.html'), (err, file) => {
+    fs.readFile(path.join(compiler.outputPath, 'index.html'), (err, file) => {
       if (err) {
         res.sendStatus(404);
       } else {

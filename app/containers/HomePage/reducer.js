@@ -1,15 +1,14 @@
-import { initialState } from 'containers/OMDBPage/reducer';
 import produce from 'immer';
 import { FILL_FORM } from './constants';
 
-export const initialise = {
-  form: {},
+export const initialState = {
+  formm: {},
 };
 
 const homePageReducer = produce((draft, action) => {
   switch (action.tyoe) {
     case FILL_FORM:
-      draft.form = action.params;
+      draft.formm = action.formm;
       break;
   }
 }, initialState);

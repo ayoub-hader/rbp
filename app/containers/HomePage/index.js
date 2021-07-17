@@ -5,66 +5,80 @@
  *
  */
 
-import React, { useState } from 'react';
-import { FormattedMessage } from 'react-intl';
-import messages from './messages';
+import React from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { createStructuredSelector } from 'reselect';
 import { fillFormAction } from './actions';
-import { makeSelectForm } from './selectors';
+import { makeSelectFormm } from './selectors';
 import { useInjectReducer } from 'redux-injectors';
 import reducer from './reducer';
 import { useForm } from 'react-hook-form';
 import FormInput from 'components/FormInput';
+import * as yup from 'yup';
+import { yupResolver } from '@hookform/resolvers/yup';
 
 const stateSelector = createStructuredSelector({
-  form: makeSelectForm,
+  formm: makeSelectFormm,
 });
-
+const SignupSchema = yup.object().shape({
+  firstName: yup.string().required(),
+  email: yup.string().required().email(),
+  age: yup.number().required().positive().integer(),
+  website: yup.string().url(),
+});
 export default function HomePage() {
   useInjectReducer({ key: 'homePage', reducer });
   const dispatch = useDispatch();
-  const { form } = useSelector(stateSelector);
-  const [blurr, setBlurr] = useState('test');
+  const { formm } = useSelector(stateSelector);
+
   const {
     register,
     handleSubmit,
-    watch,
     formState: { errors },
-  } = useForm();
-  const onSubmit = data => {
+  } = useForm({
+    resolver: yupResolver(SignupSchema),
+  });
+  const onSubmit = (data) => {
     dispatch(fillFormAction(data));
-    console.log(data);
   };
-  const onBlur = data => {
-    console.log('imdata', data);
-    setBlurr(data);
-    console.log('blur', blur);
-  };
-  console.log(form);
-  console.log(watch('example'));
-  console.log(watch('name'));
+  console.log('form', formm);
   return (
-    <>
-      <form onSubmit={handleSubmit(onSubmit)}>
-        {/* register your input into the hook by invoking the "register" function */}
-        <input
-          {...register('example')}
-          onBlur={e => {
-            onBlur(e.target.value);
-          }}
+    <form onSubmit={handleSubmit(onSubmit)}>
+      <div>
+        <FormInput
+          label="firstName"
+          type="texte"
+          register={register}
+          errors={errors.firstName}
         />
-        <FormInput label="name" register={register} />
-        {/* include validation with required or other standard HTML validation rules */}
-        <input {...register('exampleRequired', { required: true })} />
-        {/* errors will return when field validation fails  */}
-        {errors.exampleRequired && <span>This field is required</span>}
-
-        <input type="submit" />
-      </form>
-      <p>{watch('example')}</p>
-      <p>{watch('name')}</p>
-      <p>blur{blurr}</p>
-    </>
+      </div>
+      <div>
+        <FormInput
+          label="email"
+          type="texte"
+          register={register}
+          errors={errors.email}
+        />
+      </div>
+      <div style={{ marginBottom: 10 }}>
+        <label>Last Name</label>
+        <input {...register('lastName')} />
+        {errors.lastName && <p>{errors.lastName.message}</p>}
+      </div>
+      <div>
+        <FormInput
+          label="age"
+          type="number"
+          register={register}
+          errors={errors.age}
+        />
+      </div>
+      <div>
+        <label>Website</label>
+        <input {...register('website')} />
+        {errors.website && <p>{errors.website.message}</p>}
+      </div>
+      <input type="submit" />
+    </form>
   );
 }
