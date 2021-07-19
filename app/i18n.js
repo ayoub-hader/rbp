@@ -8,13 +8,9 @@
  *   You CANNOT use import/export in this file.
  */
 
-const { addLocaleData } = require('react-intl');
-const enLocaleData = require('react-intl/locale-data/en');
 const { DEFAULT_LOCALE } = require('./locales');
 
 const enTranslationMessages = require('./translations/en.json');
-
-addLocaleData(enLocaleData);
 
 const formatTranslationMessages = (locale, messages) => {
   const defaultFormattedMessages =
