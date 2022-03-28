@@ -52,6 +52,7 @@ function HomePage() {
 
   return (
     <form onSubmit={handleSubmit(onSubmit)}>
+      {user ? <div>Current user name : {user?.firstName}</div> : null}
       <div>
         <FormInput
           label="firstName"
