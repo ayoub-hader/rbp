@@ -5,7 +5,7 @@ import { useInjectReducer, useInjectSaga } from 'redux-injectors';
 import { useForm } from 'react-hook-form';
 import * as yup from 'yup';
 import { yupResolver } from '@hookform/resolvers/yup';
-import registerYupLocale from 'common/yupValidator';
+import registerYupLocale from 'utils/yupValidator';
 import Button from 'components/Button';
 import FormInput from 'components/FormInput';
 import { setUserAction } from './actions';
