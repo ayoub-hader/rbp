@@ -1,4 +1,9 @@
-import { SET_USER, SET_USER_ERROR, SET_USER_SUCCESS } from './constants';
+import {
+  CLEAN_UP,
+  SET_USER,
+  SET_USER_ERROR,
+  SET_USER_SUCCESS,
+} from './constants';
 
 export const setUserAction = (user) => {
   return {
@@ -13,8 +18,15 @@ export const setUserSuccessAction = () => {
   };
 };
 
-export const setUserErrorAction = () => {
+export const setUserErrorAction = (error) => {
   return {
     type: SET_USER_ERROR,
+    error,
+  };
+};
+
+export const setCleanUpAction = () => {
+  return {
+    type: CLEAN_UP,
   };
 };

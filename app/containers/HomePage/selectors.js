@@ -13,6 +13,11 @@ const makeSelectUserSuccess = createSelector(
   (substate) => substate.success,
 );
 
+const makeSelectUserLoading = createSelector(
+  selectHomePageDomain,
+  (substate) => substate.loading,
+);
+
 const makeSelectUserError = createSelector(
   selectHomePageDomain,
   (substate) => substate.error,
@@ -25,6 +30,7 @@ export default makeSelectHomePage;
 export {
   selectHomePageDomain,
   makeSelectUser,
+  makeSelectUserLoading,
   makeSelectUserSuccess,
   makeSelectUserError,
 };
