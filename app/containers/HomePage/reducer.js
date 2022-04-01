@@ -24,7 +24,7 @@ const homePageReducer = produce((draft, action) => {
     case SET_USER_SUCCESS:
       draft.success = true;
       draft.loading = false;
-      draft.error = false;
+      draft.error = null;
       break;
     case SET_USER_ERROR:
       draft.success = false;

@@ -1,14 +1,15 @@
 import React from 'react';
 import { render } from '@testing-library/react';
-import { IntlProvider } from 'react-intl';
+import HomePage from 'containers/HomePage/index';
+import withMockedStoreProvider from 'utils/withMockedStoreProvider';
 
-import HomePage from '../index';
+const HomePageContainer = withMockedStoreProvider(HomePage);
 
 describe('<HomePage />', () => {
   it('should render and match the snapshot', () => {
     const {
       container: { firstChild },
-    } = render(<HomePage />);
+    } = render(<HomePageContainer />);
     expect(firstChild).toMatchSnapshot();
   });
 });

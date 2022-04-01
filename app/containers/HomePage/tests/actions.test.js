@@ -1,4 +1,4 @@
-import user from 'containers/HomePage/tests/mocks';
+import user from 'containers/HomePage/tests/mocks/user';
 import {
   SET_USER,
   SET_USER_SUCCESS,
@@ -18,7 +18,7 @@ describe('HomePage Actions', () => {
       const payload = user;
       const expected = {
         type: SET_USER,
-        payload,
+        user,
       };
       expect(setUserAction(payload)).toEqual(expected);
     });

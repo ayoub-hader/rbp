@@ -1,4 +1,4 @@
-import user from 'containers/HomePage/tests/mocks';
+import user from 'containers/HomePage/tests/mocks/user';
 import { initialState } from 'containers/HomePage/reducer';
 import {
   selectHomePageDomain,
@@ -42,6 +42,8 @@ describe('HomePage selector', () => {
 
   describe('makeSelectError', () => {
     it('should select error', () => {
+      console.log(state);
+      console.log(homePageState?.error);
       expect(makeSelectUserError(state)).toBe(homePageState?.error);
     });
   });

@@ -1,5 +1,5 @@
-import homePageReducer, { initialState } from 'containers/HomePage/reducer';
-import user from 'containers/HomePage/tests/mocks';
+import homePageReducer, {initialState} from 'containers/HomePage/reducer';
+import user from 'containers/HomePage/tests/mocks/user';
 import {
   setUserAction,
   setUserErrorAction,
@@ -21,15 +21,18 @@ describe('HomePage Reducer', () => {
     const expectedState = {
       user,
       loading: true,
+      success: false,
+      error: null
     };
+
     expect(homePageReducer(state, setUserAction(user))).toEqual(expectedState);
   });
 
   it('should handle setUserSuccess action correctly', () => {
     const expectedState = {
-      user,
       success: true,
       loading: false,
+      error: null
     };
     expect(homePageReducer(state, setUserSuccessAction())).toEqual(
       expectedState,
@@ -38,6 +41,7 @@ describe('HomePage Reducer', () => {
 
   it('should handle setUserError action correctly', () => {
     const expectedState = {
+      loading: false,
       error,
       success: false,
     };

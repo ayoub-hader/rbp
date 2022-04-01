@@ -1,7 +1,39 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`<HomePage /> should render and match the snapshot 1`] = `
-<h1>
-  This is the HomePage container!
-</h1>
+<form>
+  <div>
+    Current user name : 
+  </div>
+  <div>
+    <label>
+      firstName
+    </label>
+    <input
+      name="firstName"
+      type="texte"
+    />
+  </div>
+  <div>
+    <label>
+      email
+    </label>
+    <input
+      name="email"
+      type="texte"
+    />
+  </div>
+  <div>
+    <label>
+      age
+    </label>
+    <input
+      name="age"
+      type="number"
+    />
+  </div>
+  <input
+    type="submit"
+  />
+</form>
 `;
