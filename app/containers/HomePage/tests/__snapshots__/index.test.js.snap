@@ -1,0 +1,51 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<HomePage /> should render and match the snapshot 1`] = `
+<form>
+  <div>
+    Current user name : 
+  </div>
+  <div>
+    <label
+      data-testid="label"
+    >
+      firstName
+    </label>
+    <input
+      data-testid="input"
+      name="firstName"
+      type="text"
+    />
+  </div>
+  <div>
+    <label
+      data-testid="label"
+    >
+      email
+    </label>
+    <input
+      data-testid="input"
+      name="email"
+      type="text"
+    />
+  </div>
+  <div>
+    <label
+      data-testid="label"
+    >
+      age
+    </label>
+    <input
+      data-testid="input"
+      name="age"
+      type="number"
+    />
+  </div>
+  <button
+    data-testid="button"
+    type="submit"
+  >
+    submit
+  </button>
+</form>
+`;
