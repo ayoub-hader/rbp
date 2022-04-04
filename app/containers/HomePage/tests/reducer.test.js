@@ -1,14 +1,19 @@
-import homePageReducer, {initialState} from 'containers/HomePage/reducer';
+import homePageReducer, { initialState } from 'containers/HomePage/reducer';
 import user from 'containers/HomePage/tests/mocks/user';
 import {
   setUserAction,
   setUserErrorAction,
   setUserSuccessAction,
 } from 'containers/HomePage/actions';
+import produce from 'immer';
+
+const reducerState = {
+  user,
+  error: 'TIMEOUT',
+};
 
 describe('HomePage Reducer', () => {
   let state;
-  const error = 'TIMEOUT';
   beforeEach(() => {
     state = {};
   });
@@ -18,35 +23,39 @@ describe('HomePage Reducer', () => {
   });
 
   it('should handle setUser action correctly', () => {
-    const expectedState = {
-      user,
-      loading: true,
-      success: false,
-      error: null
-    };
+    const expectedState = produce(state, (draft) => {
+      draft.user = reducerState?.user;
+      draft.loading = true;
+      draft.success = false;
+      draft.error = null;
+    });
 
-    expect(homePageReducer(state, setUserAction(user))).toEqual(expectedState);
+    expect(homePageReducer(state, setUserAction(reducerState?.user))).toEqual(
+      expectedState,
+    );
   });
 
   it('should handle setUserSuccess action correctly', () => {
-    const expectedState = {
-      success: true,
-      loading: false,
-      error: null
-    };
+    const expectedState = produce(state, (draft) => {
+      draft.success = true;
+      draft.loading = false;
+      draft.error = null;
+    });
+
     expect(homePageReducer(state, setUserSuccessAction())).toEqual(
       expectedState,
     );
   });
 
   it('should handle setUserError action correctly', () => {
-    const expectedState = {
-      loading: false,
-      error,
-      success: false,
-    };
-    expect(homePageReducer(state, setUserErrorAction(error))).toEqual(
-      expectedState,
-    );
+    const expectedState = produce(state, (draft) => {
+      draft.success = false;
+      draft.loading = false;
+      draft.error = reducerState?.error;
+    });
+
+    expect(
+      homePageReducer(state, setUserErrorAction(reducerState?.error)),
+    ).toEqual(expectedState);
   });
 });
