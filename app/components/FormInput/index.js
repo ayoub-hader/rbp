@@ -1,12 +1,12 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-function FormInput({ register, errors, label, type }) {
+function FormInput({ register, error, label, type }) {
   return (
     <>
-      <label>{label}</label>
-      <input {...register(label)} type={type} />
-      {errors && <div>{errors?.message}</div>}
+      <label data-testid="label">{label}</label>
+      <input {...register?.(label)} type={type} data-testid="input" />
+      {error && <div data-testid="error">{error?.message}</div>}
     </>
   );
 }

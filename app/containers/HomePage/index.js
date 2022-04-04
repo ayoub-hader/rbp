@@ -77,7 +77,7 @@ function HomePage() {
           errors={errors.age}
         />
       </div>
-      <Button />
+      <Button value={'submit'} />
     </form>
   );
 }
