@@ -56,17 +56,17 @@ function HomePage() {
       <div>
         <FormInput
           label="firstName"
-          type="texte"
+          type="text"
           register={register}
-          errors={errors.firstName}
+          error={errors.firstName}
         />
       </div>
       <div>
         <FormInput
           label="email"
-          type="texte"
+          type="text"
           register={register}
-          errors={errors.email}
+          error={errors.email}
         />
       </div>
       <div>
@@ -74,7 +74,7 @@ function HomePage() {
           label="age"
           type="number"
           register={register}
-          errors={errors.age}
+          error={errors.age}
         />
       </div>
       <Button value={'submit'} />

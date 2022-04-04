@@ -3,12 +3,14 @@ import { setLocale } from 'yup';
 const registerYupLocale = () => {
   setLocale({
     mixed: {
-      required: 'Ce champ est obligatoire',
+      required: 'This field is required',
     },
     string: {
-      email: "L'adresse email saisie n'est pas valide. Merci de vérifier",
-      min: 'Trop court',
-      max: 'Trop long',
+      email: 'Email address is not in the right format',
+    },
+    number: {
+      min: 'value must be higher then ${min}',
+      max: 'Value must be lower then ${max}',
     },
   });
 };

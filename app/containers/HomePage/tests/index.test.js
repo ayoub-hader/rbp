@@ -1,5 +1,5 @@
 import React from 'react';
-import { render } from '@testing-library/react';
+import { fireEvent, render } from '@testing-library/react';
 import HomePage from 'containers/HomePage/index';
 import withMockedStoreProvider from 'utils/withMockedStoreProvider';
 
@@ -11,5 +11,15 @@ describe('<HomePage />', () => {
       container: { firstChild },
     } = render(<HomePageContainer />);
     expect(firstChild).toMatchSnapshot();
+  });
+
+  it('should display correct error message', () => {
+    const { getByTestId, findByText } = render(<HomePageContainer />);
+
+    getByTestId('button');
+
+    fireEvent.click(getByTestId('button'));
+
+    findByText('This field is required');
   });
 });
