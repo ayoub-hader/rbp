@@ -5,7 +5,6 @@ import { useInjectReducer, useInjectSaga } from 'redux-injectors';
 import { useForm } from 'react-hook-form';
 import * as yup from 'yup';
 import { yupResolver } from '@hookform/resolvers/yup';
-import registerYupLocale from 'utils/yupValidator';
 import Button from 'components/Button';
 import FormInput from 'components/FormInput';
 import { setUserAction } from './actions';
@@ -17,8 +16,6 @@ import {
 } from './selectors';
 import saga from './saga';
 
-registerYupLocale();
-
 const stateSelector = createStructuredSelector({
   user: makeSelectUser,
   success: makeSelectUserSuccess,
@@ -28,7 +25,16 @@ const stateSelector = createStructuredSelector({
 const SignupSchema = yup.object().shape({
   firstName: yup.string().required(),
   email: yup.string().required().email(),
-  age: yup.number().required().positive().integer().min(15).max(20),
+  age: yup
+    .number()
+    .transform((currentValue, outputValue) => {
+      return outputValue === '' ? undefined : currentValue;
+    })
+    .required()
+    .positive()
+    .integer()
+    .min(15)
+    .max(20),
 });
 
 function HomePage() {
