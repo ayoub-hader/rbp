@@ -1,4 +1,3 @@
-import homePageReducer, { initialState } from 'containers/HomePage/reducer';
 import user from 'containers/HomePage/tests/mocks/user';
 import {
   setUserAction,
@@ -6,6 +5,7 @@ import {
   setUserSuccessAction,
 } from 'containers/HomePage/actions';
 import produce from 'immer';
+import homePageReducer, { initialState } from '../reducer';
 
 const reducerState = {
   user,

@@ -1,5 +1,5 @@
 import user from 'containers/HomePage/tests/mocks/user';
-import { initialState } from 'containers/HomePage/reducer';
+import { initialState } from '../reducer';
 import {
   selectHomePageDomain,
   makeSelectUser,

@@ -1,24 +1,18 @@
 import React from 'react';
 import { render } from '@testing-library/react';
-import FormInput from 'components/FormInput/index';
-import withMockedStoreProvider from 'utils/withMockedStoreProvider';
-
-const FormInputContainer = withMockedStoreProvider(FormInput);
+import FormInput from '../index';
 
 describe('<FormInput />', () => {
   it('should render and match the snapshot', () => {
-    const {
-      container: { firstChild },
-    } = render(<FormInputContainer />);
-    expect(firstChild).toMatchSnapshot();
+    const { container } = render(<FormInput register={jest.fn()} />);
+    expect(container).toMatchSnapshot();
   });
 
   it('input label should match props passed to component container', () => {
     const label = 'firstName';
-    const {
-      container: { firstChild },
-      getByTestId,
-    } = render(<FormInputContainer label={label} />);
+    const { getByTestId } = render(
+      <FormInput label={label} register={jest.fn()} />,
+    );
     expect(getByTestId('label').innerHTML).toEqual(label);
   });
 
@@ -26,10 +20,9 @@ describe('<FormInput />', () => {
     const error = {
       message: 'Error message',
     };
-    const {
-      container: { firstChild },
-      getByTestId,
-    } = render(<FormInputContainer error={error} />);
+    const { getByTestId } = render(
+      <FormInput error={error} register={jest.fn()} />,
+    );
     expect(getByTestId('error').innerHTML).toEqual(error?.message);
   });
 });

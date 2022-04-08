@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 
 function Button({ value }) {
   return (
@@ -7,5 +8,9 @@ function Button({ value }) {
     </button>
   );
 }
+
+Button.prototype = {
+  value: PropTypes.string,
+};
 
 export default Button;

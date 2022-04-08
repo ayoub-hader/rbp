@@ -1,7 +1,12 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`<FormInput /> should render and match the snapshot 1`] = `
-<label
-  data-testid="label"
-/>
+<div>
+  <label
+    data-testid="label"
+  />
+  <input
+    data-testid="input"
+  />
+</div>
 `;

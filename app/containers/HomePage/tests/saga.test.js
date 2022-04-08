@@ -1,10 +1,7 @@
-import { saveUser } from 'containers/HomePage/saga';
 import user from 'containers/HomePage/tests/mocks/user';
-import {
-  setUserErrorAction,
-  setUserSuccessAction,
-} from 'containers/HomePage/actions';
 import { put } from 'redux-saga/effects';
+import { setUserErrorAction, setUserSuccessAction } from '../actions';
+import { saveUser } from '../saga';
 
 describe('HomePage Saga', () => {
   let generator;

@@ -1,15 +1,12 @@
 import React from 'react';
 import { render } from '@testing-library/react';
-import Button from 'components/Button/index';
-import withMockedStoreProvider from 'utils/withMockedStoreProvider';
-
-const ButtonContainer = withMockedStoreProvider(Button);
+import Button from '../index';
 
 describe('<Button />', () => {
   it('should render and match the snapshot', () => {
     const {
       container: { firstChild },
-    } = render(<ButtonContainer />);
+    } = render(<Button />);
     expect(firstChild).toMatchSnapshot();
   });
 
@@ -18,7 +15,7 @@ describe('<Button />', () => {
     const {
       container: { firstChild },
       getByTestId,
-    } = render(<ButtonContainer value={value} />);
+    } = render(<Button value={value} />);
     expect(getByTestId('button').innerHTML).toEqual(value);
   });
 });

@@ -1,16 +1,16 @@
 import user from 'containers/HomePage/tests/mocks/user';
 import {
-  SET_USER,
-  SET_USER_SUCCESS,
-  SET_USER_ERROR,
-  CLEAN_UP,
-} from 'containers/HomePage/constants';
-import {
   setUserAction,
   setUserSuccessAction,
   setUserErrorAction,
   setCleanUpAction,
-} from 'containers/HomePage/actions';
+} from '../actions';
+import {
+  SET_USER,
+  SET_USER_SUCCESS,
+  SET_USER_ERROR,
+  CLEAN_UP,
+} from '../constants';
 
 describe('HomePage Actions', () => {
   describe('Set User Action', () => {

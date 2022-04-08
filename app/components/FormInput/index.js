@@ -5,7 +5,7 @@ function FormInput({ register, error, label, type }) {
   return (
     <>
       <label data-testid="label">{label}</label>
-      <input {...register?.(label)} type={type} data-testid="input" />
+      <input {...register(label)} type={type} data-testid="input" />
       {error && <div data-testid="error">{error?.message}</div>}
     </>
   );
@@ -13,5 +13,9 @@ function FormInput({ register, error, label, type }) {
 
 FormInput.propTypes = {
   label: PropTypes.string,
+  type: PropTypes.string,
+  error: PropTypes.object,
+  register: PropTypes.func,
 };
+
 export default FormInput;

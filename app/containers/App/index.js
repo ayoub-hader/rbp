@@ -14,7 +14,7 @@ import HomePage from 'containers/HomePage/Loadable';
 import NotFoundPage from 'containers/NotFoundPage/Loadable';
 import registerYupLocale from 'utils/yupValidator';
 
-import GlobalStyle from '../../global-styles';
+import GlobalStyle from 'global-styles';
 
 registerYupLocale();
 
