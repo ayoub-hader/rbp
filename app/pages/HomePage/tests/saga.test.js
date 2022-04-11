@@ -1,5 +1,5 @@
-import user from 'containers/HomePage/tests/mocks/user';
 import { put } from 'redux-saga/effects';
+import user from './mocks/user';
 import { setUserErrorAction, setUserSuccessAction } from '../actions';
 import { saveUser } from '../saga';
 

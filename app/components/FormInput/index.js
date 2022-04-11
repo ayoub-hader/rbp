@@ -12,10 +12,10 @@ function FormInput({ register, error, label, type }) {
 }
 
 FormInput.propTypes = {
+  register: PropTypes.func,
+  error: PropTypes.object,
   label: PropTypes.string,
   type: PropTypes.string,
-  error: PropTypes.object,
-  register: PropTypes.func,
 };
 
 export default FormInput;

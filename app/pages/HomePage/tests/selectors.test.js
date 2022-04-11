@@ -1,11 +1,11 @@
-import user from 'containers/HomePage/tests/mocks/user';
+import user from './mocks/user';
 import { initialState } from '../reducer';
 import {
   selectHomePageDomain,
   makeSelectUser,
   makeSelectUserSuccess,
   makeSelectUserError,
-} from 'containers/HomePage/selectors';
+} from '../selectors';
 
 const homePageState = {
   user,

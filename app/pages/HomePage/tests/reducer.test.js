@@ -1,10 +1,10 @@
-import user from 'containers/HomePage/tests/mocks/user';
+import produce from 'immer';
+import user from './mocks/user';
 import {
   setUserAction,
   setUserErrorAction,
   setUserSuccessAction,
-} from 'containers/HomePage/actions';
-import produce from 'immer';
+} from '../actions';
 import homePageReducer, { initialState } from '../reducer';
 
 const reducerState = {
