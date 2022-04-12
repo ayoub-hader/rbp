@@ -8,10 +8,11 @@
  */
 
 import React from 'react';
-import { Switch, Route } from 'react-router-dom';
+import { Route, Switch } from 'react-router-dom';
 import { hot } from 'react-hot-loader/root';
 import HomePage from 'pages/HomePage/Loadable';
 import NotFoundPage from 'pages/NotFoundPage/Loadable';
+import TestPage from 'pages/TestPage/Loadable';
 import registerYupLocale from 'utils/yupValidator';
 
 import GlobalStyle from 'global-styles';
@@ -23,6 +24,7 @@ function App() {
     <div>
       <Switch>
         <Route exact path="/" component={HomePage} />
+        <Route exact path="/test" component={TestPage} />
         <Route component={NotFoundPage} />
       </Switch>
       <GlobalStyle />
