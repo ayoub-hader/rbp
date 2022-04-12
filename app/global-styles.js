@@ -1,31 +1,19 @@
-import { createGlobalStyle } from 'styled-components';
+import {createGlobalStyle} from 'styled-components';
+import normalize from './theme/styled-normalize';
+import {AppTheme} from './theme/index';
+import {GlobalFontStyle} from './theme/fonts/style';
 
 const GlobalStyle = createGlobalStyle`
-  html,
+  ${normalize}
+  ${GlobalFontStyle}
   body {
-    height: 100%;
-    width: 100%;
-  }
-
-  body {
-    font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
-  }
-
-  #app {
-    min-height: 100%;
-    min-width: 100%;
-  }
-
-  p,
-  label {
-    font-family: Georgia, Times, 'Times New Roman', serif;
-    line-height: 1.5em;
-  }
-
-  input, select {
-    font-family: inherit;
-    font-size: inherit;
-  }
+    overflow: hidden;
+    text-align: left;
+    color: ${AppTheme.GreyColors[700]};
+    background-color: ${AppTheme.GreyColors[100]};
+    ${AppTheme.Fonts.Family}
+    ${AppTheme.Fonts.Weight[400]}
+    ${AppTheme.Fonts.Scale.Display}
 `;
 
 export default GlobalStyle;
