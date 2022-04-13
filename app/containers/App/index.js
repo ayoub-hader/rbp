@@ -17,7 +17,7 @@ import TestPage from 'pages/TestPage/Loadable';
 import registerYupLocale from 'utils/yupValidator';
 
 import GlobalStyle from 'global-styles';
-import theme from '../../theme';
+import theme from 'theme';
 
 registerYupLocale();
 

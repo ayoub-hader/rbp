@@ -1,7 +1,26 @@
-import {Fonts} from './fonts';
-import {AppColors} from './colors/app-colors';
-import {AppShadows} from './colors/app-shadows';
-import {GradientColors} from './colors/gradient-color';
-import {GreyColors} from './colors/grey-colors';
+import { createTheme } from '@mui/material/styles';
+import { AppTheme } from './app-theme';
 
-export const AppTheme = {Fonts, AppColors, AppShadows, GradientColors, GreyColors};
+const theme = createTheme({
+  palette: {
+    primary: {
+      main: AppTheme.AppColors.primary,
+    },
+    customPrimary: {
+      main: AppTheme.AppColors.success,
+    },
+  },
+  spacing: 1,
+  typography: {
+    fontSize: 14,
+  },
+  components: {
+    MuiButtonBase: {
+      defaultProps: {
+        disableRipple: true,
+      },
+    },
+  },
+});
+
+export default theme;

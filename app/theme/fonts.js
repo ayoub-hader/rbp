@@ -6,12 +6,6 @@ const Scale = {
   Display3: 'font-size: 1.5rem; line-height: 34px;',
 };
 
-const ScaleOnlySize = {
-  Title: '1.25rem',
-  Display: '0.8rem',
-  Icon: '2rem',
-};
-
 const Weight = {
   100: 'font-weight: 100;',
 
@@ -38,5 +32,4 @@ export const Fonts = {
   Scale,
   Weight,
   Family,
-  ScaleOnlySize,
 };

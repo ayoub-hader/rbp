@@ -1,7 +1,7 @@
-import {createGlobalStyle} from 'styled-components';
+import { createGlobalStyle } from 'styled-components';
 import normalize from './theme/styled-normalize';
-import {AppTheme} from './theme/index';
-import {GlobalFontStyle} from './theme/fonts/style';
+import { AppTheme } from './theme/app-theme';
+import { GlobalFontStyle } from './theme/fonts/style';
 
 const GlobalStyle = createGlobalStyle`
   ${normalize}
