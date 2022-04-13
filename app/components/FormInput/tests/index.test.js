@@ -1,6 +1,6 @@
 import React from 'react';
 import { render } from '@testing-library/react';
-import FormInput from '../index';
+import FormInput from '..';
 
 describe('<FormInput />', () => {
   it('should render and match the snapshot', () => {

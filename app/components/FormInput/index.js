@@ -6,7 +6,7 @@ function FormInput({ register, error, label, type }) {
     <>
       <label data-testid="label">{label}</label>
       <input {...register(label)} type={type} data-testid="input" />
-      {error && <div data-testid="error">{error?.message}</div>}
+      {error && <div data-testid="error">{error.message}</div>}
     </>
   );
 }
