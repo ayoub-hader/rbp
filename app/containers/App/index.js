@@ -10,10 +10,13 @@
 import React from 'react';
 import { Switch, Route } from 'react-router-dom';
 import { hot } from 'react-hot-loader/root';
-import HomePage from 'containers/HomePage/Loadable';
-import NotFoundPage from 'containers/NotFoundPage/Loadable';
+import HomePage from 'pages/HomePage/Loadable';
+import NotFoundPage from 'pages/NotFoundPage/Loadable';
+import registerYupLocale from 'utils/yupValidator';
 
-import GlobalStyle from '../../global-styles';
+import GlobalStyle from 'global-styles';
+
+registerYupLocale();
 
 function App() {
   return (

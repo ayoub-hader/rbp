@@ -39,7 +39,7 @@ const initialState = {};
 const store = configureStore(initialState, history);
 const MOUNT_NODE = document.getElementById('app');
 
-const ConnectedApp = props => (
+const ConnectedApp = (props) => (
   <Provider store={store}>
     <LanguageProvider messages={props.messages}>
       <ConnectedRouter history={history}>
@@ -55,7 +55,7 @@ ConnectedApp.propTypes = {
   messages: PropTypes.object,
 };
 
-const render = messages => {
+const render = (messages) => {
   ReactDOM.render(<ConnectedApp messages={messages} />, MOUNT_NODE);
 };
 
@@ -71,21 +71,14 @@ if (module.hot) {
 
 // Chunked polyfill for browsers without Intl support
 if (!window.Intl) {
-  new Promise(resolve => {
+  new Promise((resolve) => {
     resolve(import('intl'));
   })
     .then(() => Promise.all([import('intl/locale-data/jsonp/en.js')]))
     .then(() => render(translationMessages))
-    .catch(err => {
+    .catch((err) => {
       throw err;
     });
 } else {
   render(translationMessages);
-}
-
-// Install ServiceWorker and AppCache in the end since
-// it's not most important operation and if main code fails,
-// we do not want it installed
-if (process.env.NODE_ENV === 'production') {
-  require('offline-plugin/runtime').install(); // eslint-disable-line global-require
 }
