@@ -1,7 +1,7 @@
 import React from 'react';
 import { fireEvent, render } from '@testing-library/react';
 import withMockedStoreProvider from 'utils/withMockedStoreProvider';
-import HomePage from '../index';
+import HomePage from '..';
 
 const HomePageContainer = withMockedStoreProvider(HomePage);
 
