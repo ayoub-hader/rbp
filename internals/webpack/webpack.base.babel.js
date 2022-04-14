@@ -110,6 +110,7 @@ module.exports = (options) => ({
     extensions: ['.js', '.jsx', '.react.js'],
     alias: {
       'react-dom': '@hot-loader/react-dom',
+      '@mui/styled-engine': '@mui/styled-engine-sc',
     },
   },
   devtool: options.devtool,
